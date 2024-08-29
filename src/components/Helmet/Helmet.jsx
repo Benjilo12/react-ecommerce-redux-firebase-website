@@ -1,8 +1,11 @@
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 
 function Helmet({ title, children }) {
-  // Update the document title
-  document.title = `Yoomart - | ${title}`;
+  useEffect(() => {
+    // Update the document title
+    document.title = `Yoomart - | ${title}`;
+  }, [title]); // Run the effect whenever the title changes
 
   return <div className="w-100">{children}</div>;
 }
