@@ -1,12 +1,11 @@
 import ProductCard from "./ProductCard";
 
-function ProductList() {
+function ProductList({ data }) {
   return (
     <>
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      {data?.map((item, index) => (
+        <ProductCard item={item} key={index} />
+      ))}
     </>
   );
 }

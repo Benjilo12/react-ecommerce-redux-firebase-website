@@ -1,16 +1,16 @@
 import Header from "../Header";
-import Footer from "../Footer/Footer";
-// import { Outlet } from "react-router-dom";
-import Box from "@mui/material/Box";
+
 import Routers from "../../../routers/Routers";
+import EndingFooter from "../../EndingFooter/EndingFooter";
+
 function Layout() {
   return (
     <>
       <Header />
-      <Box>
+      <div>
         <Routers />
-      </Box>
-      <Footer />
+      </div>
+      <EndingFooter />
     </>
   );
 }

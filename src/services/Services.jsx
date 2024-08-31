@@ -45,7 +45,7 @@ const styles = {
     fontSize: "2.2rem",
     background: "var(--primary-color)",
     padding: "10px",
-    borderRadius: "50px",
+    borderRadius: "100%",
     color: "#fff",
     fontWeight: "400 !important",
   },

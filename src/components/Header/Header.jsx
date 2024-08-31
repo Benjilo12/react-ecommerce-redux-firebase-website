@@ -7,6 +7,7 @@ import { MdOutlineShoppingBag } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
 import "./style.css";
+import { useEffect, useRef } from "react";
 
 const nav_link = [
   {
@@ -24,8 +25,32 @@ const nav_link = [
 ];
 
 function Header() {
+  const headerRef = useRef(null);
+
+  const menuRef = useRef(null);
+
+  const stickyHeaderFunc = () => {
+    window.addEventListener("scroll", () => {
+      if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+      ) {
+        headerRef.current.classList.add("sticky_header");
+      } else {
+        headerRef.current.classList.remove("sticky_header");
+      }
+    });
+  };
+
+  useEffect(() => {
+    stickyHeaderFunc();
+
+    return () => window.removeEventListener("scroll", stickyHeaderFunc);
+  });
+
+  const menuToggle = () => menuRef.current.classList.toggle("active_menu");
   return (
-    <header className="header">
+    <header className="header" ref={headerRef}>
       <Container>
         <Row>
           <div className="nav_wrapper">
@@ -37,7 +62,7 @@ function Header() {
                 <h1>Yoomart</h1>
               </div>
             </div>
-            <div className="navigation">
+            <div className="navigation" ref={menuRef} onClick={menuToggle}>
               <ul className="menu">
                 {nav_link.map((item, index) => (
                   <NavLink
@@ -65,11 +90,11 @@ function Header() {
               <span>
                 <img src={userIcon} alt="" />
               </span>
-            </div>
-            <div className="mobile_menu">
-              <span>
-                <IoMenu />
-              </span>
+              <div className="mobile_menu">
+                <span onClick={menuToggle}>
+                  <IoMenu />
+                </span>
+              </div>
             </div>
           </div>
         </Row>

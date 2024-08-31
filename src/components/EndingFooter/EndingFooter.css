@@ -1,0 +1,50 @@
+.footer {
+  padding-top: 60px;
+  padding-bottom: 30px;
+  background: var(--primary-color);
+}
+
+.footer_text {
+  line-height: 30px;
+  color: #daa520;
+}
+
+.footer_quick-links {
+  background: var(--primary-color);
+}
+
+.footer_quick-links ul {
+  padding: 0;
+  list-style: none;
+}
+
+.liststyles {
+  background: var(--primary-color);
+}
+
+.footer_quick-links ul li {
+  background: transparent !important;
+}
+
+.footer_quick-links ul li a {
+  color: rgba(255, 255, 255, 0.735);
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.footer_quick-links ul li a:hover {
+  color: #fff; /* Optional: Change link color on hover */
+}
+
+.quick_links-title {
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.footer_copyright {
+  text-align: center;
+  color: #fff;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}

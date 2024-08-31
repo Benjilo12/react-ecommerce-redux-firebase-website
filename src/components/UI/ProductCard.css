@@ -3,9 +3,9 @@
 }
 
 .product_info h3 {
-  font-size: 1.2rem;
+  font-size: 0.5rem;
   color: var(--primary-color);
-  font-weight: 600;
+  font-weight: 800;
   margin-top: 15px;
   text-decoration: none;
 }
