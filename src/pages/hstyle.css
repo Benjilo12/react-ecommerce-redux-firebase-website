@@ -64,3 +64,53 @@
 .store_btn a:hover {
   color: var(---primary-color);
 }
+
+/* @ 992px or less */
+@media only screen and (max-width: 992px) {
+  .hero_content h2 {
+    font-size: 1.5rem;
+  }
+  .counter_img {
+    display: none;
+  }
+
+  .clock_top-content {
+    text-align: center;
+  }
+
+  .cloak {
+    text-align: center;
+  }
+
+  .count_down-col {
+    text-align: center;
+    display: inline-block;
+  }
+}
+
+/* @ 768px or less */
+@media only screen and (max-width: 768px) {
+  .hero_content h2 {
+    font-size: 1.6rem;
+  }
+  .hero_content p {
+    font-size: 0.9rem;
+  }
+  .store_btn {
+    font-size: 0.9rem;
+  }
+
+  .section_title {
+    font-size: 1.4rem;
+  }
+  .buy_btn {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hero_content {
+    padding-top: 0;
+    margin-bottom: 40px;
+  }
+}

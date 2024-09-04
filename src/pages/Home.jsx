@@ -103,7 +103,7 @@ function Home() {
       <section className="timer_count">
         <Container>
           <Row>
-            <Col lg="6" md="6">
+            <Col lg="6" md="6" className="count_down-col">
               <div className="clock_top-content">
                 <h4 className="text-white fs-6 mb-2">Limited Offers</h4>
                 <h3 className="text-white fs-5 mb-3">Quality Armchair</h3>
@@ -118,8 +118,8 @@ function Home() {
                 </Link>
               </motion.button>
             </Col>
-            <Col lg="6" md="6" className="text-end">
-              <img src={counterImg} alt="sofa" />
+            <Col lg="6" md="12" sm="12" className="text-end">
+              <img className="counter_img" src={counterImg} alt="sofa" />
             </Col>
           </Row>
         </Container>

@@ -40,6 +40,11 @@ const styles = {
     columnGap: "0.7rem",
     borderRadius: "5px",
     cursor: "pointer",
+    "@media only screen and (max-width: 768px)": {
+      fontSize: "1.8rem",
+      padding: "10px",
+      marginBottom: "1.5rem",
+    },
   },
   span: {
     fontSize: "2.2rem",
@@ -48,11 +53,18 @@ const styles = {
     borderRadius: "100%",
     color: "#fff",
     fontWeight: "400 !important",
+    "@media only screen and (max-width: 768px)": {
+      fontSize: "1.8rem",
+      padding: "5px",
+    },
   },
   title: {
     color: "var(--primary-color)",
     fontSize: "1.1rem",
     fontWeight: "500",
+    "@media only screen and (max-width: 768px)": {
+      fontSize: "1rem",
+    },
   },
   description: {
     fontSize: "0.9rem",
@@ -68,7 +80,14 @@ function Services() {
       <Container>
         <Row>
           {serviceData.map((item, index) => (
-            <Col lg="3" md="4" key={index}>
+            <Col
+              lg="3"
+              md="4"
+              sm="6"
+              xs="12"
+              key={index}
+              style={window.innerWidth <= 768 ? { marginBottom: "1.5rem" } : {}}
+            >
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 style={{ ...styles.service_item, background: item.bg }}

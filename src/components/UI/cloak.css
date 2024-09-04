@@ -1,0 +1,12 @@
+@media only screen and (max-width: 992px) {
+  .clock_wrapper {
+    justify-content: center;
+  }
+
+  .cloak_data h1 {
+    font-size: 1.1rem;
+  }
+  .cloak_data h5 {
+    font-size: 0.9rem;
+  }
+}

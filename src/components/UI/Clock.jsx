@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import "./cloak.css";
 
 function Clock() {
   const [days, setDays] = useState(0);

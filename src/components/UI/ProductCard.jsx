@@ -4,8 +4,25 @@ import { motion } from "framer-motion";
 import "./ProductCard.css";
 import { Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../redux/slices/cartSlice";
 
 function ProductCard({ item }) {
+  //we import the cartAction from cartslice to acess it
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    dispatch(
+      cartActions.addItem({
+        id: item.id,
+        productName: item.productName,
+        price: item.price,
+        image: item.imgUrl,
+      })
+    );
+
+    alert("product added to cart");
+  };
   return (
     <Col lg="3" md="4" className="mb-2">
       <div className="product_item">
@@ -20,7 +37,7 @@ function ProductCard({ item }) {
           <motion.h3 className="product_name" whileTap={{ scale: 1.2 }}>
             <Link
               className="product_name h3"
-              style={{ textDecoration: "none" }}
+              style={{ textDecoration: "none", fontSize: "1.2rem" }}
               to={`/shop/${item.id}`}
             >
               {item.productName}
@@ -30,8 +47,12 @@ function ProductCard({ item }) {
         </div>
         <div className="product_card-bottom d-flex align-items-center justify-content-between p-2">
           <span className="price">${item.price}</span>
-          <motion.span whileTap={{ scale: 1.2 }} className="product_card-icon">
-            <AddIcon />
+          <motion.span
+            whileTap={{ scale: 1.2 }}
+            className="product_card-icon"
+            onClick={addToCart}
+          >
+            <AddIcon className="icon" />
           </motion.span>
         </div>
       </div>
