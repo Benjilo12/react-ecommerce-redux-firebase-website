@@ -6,6 +6,7 @@ import { Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../redux/slices/cartSlice";
+import { toast } from "react-toastify";
 
 function ProductCard({ item }) {
   //we import the cartAction from cartslice to acess it
@@ -21,7 +22,7 @@ function ProductCard({ item }) {
       })
     );
 
-    alert("product added to cart");
+    toast.success("Product added to cart");
   };
   return (
     <Col lg="3" md="4" className="mb-2">

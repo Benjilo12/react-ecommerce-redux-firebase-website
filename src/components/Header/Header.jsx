@@ -8,6 +8,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
 import "./style.css";
 import { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 
 const nav_link = [
   {
@@ -26,6 +27,8 @@ const nav_link = [
 
 function Header() {
   const headerRef = useRef(null);
+  //acessing the totalquantity to show at the top of cart icon
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
   const menuRef = useRef(null);
 
@@ -85,7 +88,7 @@ function Header() {
               </span>
               <span className="cart_icon">
                 <MdOutlineShoppingBag />
-                <span className="badge">1</span>
+                <span className="badge">{totalQuantity}</span>
               </span>
               <span>
                 <img src={userIcon} alt="" />

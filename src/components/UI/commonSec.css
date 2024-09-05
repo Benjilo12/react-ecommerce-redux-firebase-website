@@ -1,0 +1,15 @@
+.common_section {
+  background: linear-gradient(#00000076, #000),
+    url("../../assets/images/commonsection.jpg") no-repeat center center;
+  background-size: cover;
+  padding: 100px 0px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.common_section h1 {
+  color: #fff;
+  font-weight: 600;
+}
