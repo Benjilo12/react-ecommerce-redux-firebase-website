@@ -12,13 +12,14 @@ function ProductCard({ item }) {
   //we import the cartAction from cartslice to acess it
   const dispatch = useDispatch();
 
+  //HELPS AS TO ADD TO CART
   const addToCart = () => {
     dispatch(
       cartActions.addItem({
         id: item.id,
         productName: item.productName,
         price: item.price,
-        image: item.imgUrl,
+        imgUrl: item.imgUrl,
       })
     );
 

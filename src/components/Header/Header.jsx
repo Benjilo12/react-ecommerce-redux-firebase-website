@@ -2,13 +2,14 @@ import logo from "../../assets/images/eco-logo.png";
 import userIcon from "../../assets/images/user-icon.png";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
 import "./style.css";
 import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const nav_link = [
   {
@@ -29,6 +30,9 @@ function Header() {
   const headerRef = useRef(null);
   //acessing the totalquantity to show at the top of cart icon
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+
+  //using usenavigate to navigate to cart
+  const navigate = useNavigate();
 
   const menuRef = useRef(null);
 
@@ -52,6 +56,10 @@ function Header() {
   });
 
   const menuToggle = () => menuRef.current.classList.toggle("active_menu");
+
+  const navigateToCart = () => {
+    navigate("/cart");
+  };
   return (
     <header className="header" ref={headerRef}>
       <Container>
@@ -62,7 +70,9 @@ function Header() {
                 <img src={logo} alt="logo" />
               </div>
               <div>
-                <h1>Yoomart</h1>
+                <Link to="/" style={{ textDecoration: " none" }}>
+                  <h1>Yoomart</h1>
+                </Link>
               </div>
             </div>
             <div className="navigation" ref={menuRef} onClick={menuToggle}>
@@ -86,7 +96,7 @@ function Header() {
                 <FaRegHeart />
                 <span className="badge">1</span>
               </span>
-              <span className="cart_icon">
+              <span className="cart_icon" onClick={navigateToCart}>
                 <MdOutlineShoppingBag />
                 <span className="badge">{totalQuantity}</span>
               </span>

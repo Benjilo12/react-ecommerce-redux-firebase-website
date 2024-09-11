@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 
 import StarIcon from "@mui/icons-material/Star";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function ProductDetails() {
   //Tab
@@ -53,6 +53,15 @@ function ProductDetails() {
 
     const reviewUserName = reviewUser.current.value;
     const reviewUserMsg = reviewMsg.current.value;
+
+    const reviewObj = {
+      userName: reviewUserName,
+      text: reviewUserMsg,
+      rating,
+    };
+
+    console.log(reviewObj);
+    toast.success("Review submitted");
   };
 
   //add to cart
@@ -69,6 +78,11 @@ function ProductDetails() {
     toast.success("Product added to cart");
   };
 
+  //ENSURES that when you click on product details the page scrolls up
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [product]);
+
   return (
     <Helmet title={productName}>
       <CommonSection title={productName} />
@@ -83,7 +97,7 @@ function ProductDetails() {
             <Col lg="6" className="mt-5">
               <div className="product_details">
                 <h2>{productName}</h2>
-                <div className="product_ratings d-flex align-items-center gap-5 mb-3">
+                <div className="product_ratings d-flex align-items-center gap-5 mb-3 rating_group">
                   <div>
                     <span>
                       <StarIcon style={{ color: "coral" }} />
@@ -107,7 +121,7 @@ function ProductDetails() {
                 </div>
                 <div className="d-flex align-items-center gap-5">
                   <span className="product_price">${price}</span>
-                  <span>Category:{category.toUpperCase()}</span>
+                  <span>Category: {category.toUpperCase()}</span>
                 </div>
 
                 <p className="mt-3">{shortDesc}</p>
@@ -164,24 +178,40 @@ function ProductDetails() {
                             type="text"
                             placeholder="Enter name"
                             ref={reviewUser}
+                            required
                           />
                         </div>
                         <div className="form_group d-flex gap-5 align-items-center">
-                          <span onClick={() => setRating(1)}>
+                          <motion.span
+                            whileTap={{ scale: 1.2 }}
+                            onClick={() => setRating(1)}
+                          >
                             1<StarIcon />
-                          </span>
-                          <span onClick={() => setRating(2)}>
-                            <StarIcon />
-                          </span>
-                          <span onClick={() => setRating(3)}>
+                          </motion.span>
+                          <motion.span
+                            whileTap={{ scale: 1.2 }}
+                            onClick={() => setRating(2)}
+                          >
+                            2<StarIcon />
+                          </motion.span>
+                          <motion.span
+                            whileTap={{ scale: 1.2 }}
+                            onClick={() => setRating(3)}
+                          >
                             3<StarIcon />
-                          </span>
-                          <span>
-                            4<StarIcon onClick={() => setRating(4)} />
-                          </span>
-                          <span>
-                            5<StarIcon onClick={() => setRating(5)} />
-                          </span>
+                          </motion.span>
+
+                          <motion.span
+                            onClick={() => setRating(4)}
+                            whileTap={{ scale: 1.2 }}
+                          >
+                            4
+                            <StarIcon />
+                          </motion.span>
+                          <motion.span whileTap={{ scale: 1.2 }}>
+                            5
+                            <StarIcon onClick={() => setRating(5)} />
+                          </motion.span>
                         </div>
 
                         <div className="form_group">
@@ -190,6 +220,7 @@ function ProductDetails() {
                             rows={4}
                             placeholder="Review Message..."
                             ref={reviewMsg}
+                            required
                           />
                         </div>
                         <button type="submit" className="buy_btn">

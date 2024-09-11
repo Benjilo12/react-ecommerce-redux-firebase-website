@@ -67,7 +67,7 @@ function Shop() {
       <section>
         <Container>
           <Row className="gap-2">
-            <Col lg="3" md="3">
+            <Col lg="3" md="6">
               <div className="filter_widget">
                 <select onClick={handleFilter}>
                   <option>Filter By Category</option>
@@ -79,7 +79,7 @@ function Shop() {
                 </select>
               </div>
             </Col>
-            <Col lg="3" md="3">
+            <Col lg="3" md="6">
               <div className="filter_widget">
                 <select>
                   <option>Sort By</option>
@@ -88,7 +88,7 @@ function Shop() {
                 </select>
               </div>
             </Col>
-            <Col lg="4" md="4">
+            <Col lg="4" md="12">
               <div className="search_box">
                 <input
                   type="text"
