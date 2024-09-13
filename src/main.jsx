@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Login from "./pages/Login.jsx";
+
 // 4. Provide the Store to Your App
 // how to use react toastify
 createRoot(document.getElementById("root")).render(

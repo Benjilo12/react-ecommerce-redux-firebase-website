@@ -8,7 +8,7 @@ import Signup from "../pages/Signup";
 import Cart from "../pages/Cart";
 import ProductDetails from "../pages/ProductDetails";
 import NotFound from "../pages/NotFound";
-
+import ProtectRoute from "./ProtectRoute";
 function Routers() {
   return (
     <Routes>
@@ -17,7 +17,14 @@ function Routers() {
       <Route path="shop" element={<Shop />} />
       <Route path="shop/:id" element={<ProductDetails />} />
       <Route path="cart" element={<Cart />} />
-      <Route path="checkout" element={<Checkout />} />
+      <Route
+        path="checkout"
+        element={
+          <ProtectRoute>
+            <Checkout />
+          </ProtectRoute>
+        }
+      />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
       <Route path="*" element={<NotFound />} />
